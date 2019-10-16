@@ -10,7 +10,7 @@
 
     <EditText
         android:id="@+id/edittextemail"
-        android:layout_width="390dp"
+        android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="184dp"
         android:background="@drawable/edittextbackground"
@@ -23,7 +23,7 @@
 
     <EditText
         android:id="@+id/edittextpassword"
-        android:layout_width="390dp"
+        android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/edittextbackground"
