@@ -51,7 +51,7 @@
             >
 
             <com.google.android.material.card.MaterialCardView
-            android:id="@+id/view1"
+            android:id="@+id/diunews"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -64,11 +64,11 @@
                     android:layout_height="match_parent"
                     android:background="#2196F3"
                     android:gravity="center"
-                    android:onClick="intentToNews"
                     android:orientation="vertical">
 
 
                     <ImageView
+
                         android:layout_width="90dp"
                         android:layout_height="90dp"
                         android:src="@drawable/ic_news" />
@@ -150,6 +150,7 @@
 
 
                     <ImageView
+                        android:id="@+id/weblinks"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:src="@drawable/web" />
@@ -185,6 +186,7 @@
 
 
                     <ImageView
+                        android:id="@+id/trainings"
                         android:layout_width="90dp"
                         android:layout_height="90dp"
                         android:src="@drawable/ic_training" />
@@ -229,6 +231,7 @@
 
 
                     <ImageView
+                        android:id="@+id/libraryinfo"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:src="@drawable/ic_library" />
@@ -264,6 +267,7 @@
 
 
                     <ImageView
+                        android:id="@+id/elearncenter"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:src="@drawable/ic_elearn" />
