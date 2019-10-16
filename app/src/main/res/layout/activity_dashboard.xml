@@ -50,7 +50,7 @@
             android:orientation="horizontal"
             >
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
             android:id="@+id/view1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -84,9 +84,9 @@
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/view2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -120,7 +120,7 @@
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
 
@@ -132,7 +132,7 @@
             android:orientation="horizontal"
             >
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/view3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -165,9 +165,9 @@
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/view4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -199,7 +199,7 @@
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
 
@@ -211,7 +211,7 @@
             android:orientation="horizontal"
             >
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/view5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -244,9 +244,9 @@
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/view6"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -278,7 +278,7 @@
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
         <!--row4-->
@@ -290,7 +290,7 @@
             android:orientation="horizontal"
             >
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/view7"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -323,9 +323,10 @@
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView
+             >
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/view8"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -357,7 +358,7 @@
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
         <!--row5-->
@@ -369,7 +370,7 @@
             android:orientation="horizontal"
             >
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/view9"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -402,9 +403,9 @@
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/view10"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -436,7 +437,7 @@
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
     </LinearLayout>
