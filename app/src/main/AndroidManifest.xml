@@ -13,6 +13,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".LabDataActivity"></activity>
         <activity android:name=".ResearchLabActivity" />
+        <activity android:name=".WebLinks"></activity>
+        <activity android:name=".ViewWebPages" />
         <activity android:name=".NewsActivity" />
         <activity android:name=".Dashboard" />
         <activity android:name=".LogIn" />
