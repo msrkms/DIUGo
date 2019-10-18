@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import com.google.android.material.card.MaterialCardView;
 
 public class Dashboard extends AppCompatActivity {
-    MaterialCardView news,training,elearn,library,weblink;
+    MaterialCardView news,training,elearn,library,weblink,researchlab,studySpace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,7 @@ public class Dashboard extends AppCompatActivity {
         elearn=findViewById(R.id.view6);
         library=findViewById(R.id.view5);
         weblink=findViewById(R.id.view3);
+        researchlab=(MaterialCardView) findViewById(R.id.viewResearchLab);
 
 
        weblink.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +71,13 @@ public class Dashboard extends AppCompatActivity {
                Intent intent = new Intent(Dashboard.this,ViewWebPages.class);
                intent.putExtra("News",diulibrary);
                startActivity(intent);
+           }
+       });
+
+       researchlab.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               startActivity(new Intent(Dashboard.this,ResearchLabActivity.class));
            }
        });
 
