@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WebLinks"></activity>
+        <activity android:name=".DataLoadingActivity"></activity>
+        <activity android:name=".LabDataActivity" />
+        <activity android:name=".ResearchLabActivity" />
+        <activity android:name=".WebLinks" />
         <activity android:name=".ViewWebPages" />
         <activity android:name=".NewsActivity" />
         <activity android:name=".Dashboard" />
