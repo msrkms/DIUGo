@@ -10,90 +10,72 @@
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="370dp"
+        android:layout_width="390dp"
         android:layout_height="70dp"
+        android:layout_marginTop="116dp"
         android:background="@drawable/edittextbackground"
         android:gravity="center"
         android:hint="Email"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.146" />
+        tools:layout_editor_absoluteX="10dp" />
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="370dp"
+        android:layout_width="390dp"
         android:layout_height="70dp"
+        android:layout_marginTop="72dp"
         android:background="@drawable/edittextbackground"
         android:gravity="center"
         android:hint="Password"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.34" />
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        tools:layout_editor_absoluteX="10dp" />
 
     <EditText
         android:id="@+id/confirmpassword"
-        android:layout_width="370dp"
+        android:layout_width="390dp"
         android:layout_height="70dp"
+        android:layout_marginTop="72dp"
         android:background="@drawable/edittextbackground"
         android:gravity="center"
         android:hint="Confrim Password"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.526" />
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        tools:layout_editor_absoluteX="10dp" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="200dp"
         android:layout_height="75dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/buttonshape"
         android:text="Sign Up"
         android:textAllCaps="false"
         android:textColor="#FFFFFFFF"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.881"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.689" />
+        app:layout_constraintTop_toBottomOf="@+id/confirmpassword"
+        tools:layout_editor_absoluteX="105dp" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="Already Have an Account?|LogIn"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.613"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.808" />
+        app:layout_constraintTop_toBottomOf="@+id/button1"
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
-        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
         android:gravity="center"
         android:text="Forgot Password?"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.889" />
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        tools:layout_editor_absoluteX="124dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -56,7 +56,7 @@ public class Dashboard extends AppCompatActivity {
        elearn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               String diublended="https://elearn.daffodil.university/login/index.php";
+               String diublended="https://elearn.daffodil.university/";
                Intent intent = new Intent(Dashboard.this,ViewWebPages.class);
                intent.putExtra("News",diublended);
                startActivity(intent);
