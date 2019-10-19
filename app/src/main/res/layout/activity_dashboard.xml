@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dashboard"
+            android:text="DIU GO!"
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:textSize="30sp"
@@ -45,7 +45,7 @@
 <!--row1-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="135dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
             >
@@ -74,7 +74,10 @@
                         android:src="@drawable/ic_news" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="News"
                         android:textColor="#000000"
@@ -105,60 +108,17 @@
 
 
                     <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
                         android:src="@drawable/placefinder" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Place Finder"
-                        android:textSize="20sp"
-                        android:textColor="#000000"
-                        />
-
-
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-        </LinearLayout>
-
-
-<!--row2-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="135dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            >
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/view3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                >
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:background="#E6AD05"
-                    android:orientation="vertical"
-                    >
-
-
-                    <ImageView
-                        android:id="@+id/weblinks"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:src="@drawable/web" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Web Links"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         />
@@ -191,7 +151,10 @@
                         android:layout_height="90dp"
                         android:src="@drawable/ic_training" />
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Trainning"
                         android:textSize="20sp"
@@ -206,13 +169,52 @@
         </LinearLayout>
 
 
-        <!--row3-->
+<!--row2-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="135dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
             >
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:background="#E6AD05"
+                    android:orientation="vertical"
+                    >
+
+
+                    <ImageView
+                        android:id="@+id/weblinks"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:src="@drawable/web" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Web Links"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        />
+
+
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/view5"
@@ -232,12 +234,15 @@
 
                     <ImageView
                         android:id="@+id/libraryinfo"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
                         android:src="@drawable/ic_library" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Library"
                         android:textSize="20sp"
@@ -268,11 +273,14 @@
 
                     <ImageView
                         android:id="@+id/elearncenter"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
                         android:src="@drawable/ic_elearn" />
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="E-Learn"
                         android:textSize="20sp"
@@ -284,13 +292,17 @@
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
+
+
         </LinearLayout>
 
-        <!--row4-->
+
+        <!--row3-->
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="135dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
             >
@@ -312,14 +324,17 @@
 
 
                     <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
                         android:src="@drawable/ic_administratorinfo" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Administrator Info"
+                        android:text="Administration"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         />
@@ -348,11 +363,14 @@
 
 
                     <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
                         android:src="@drawable/ic_campusmap" />
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Campus Map"
                         android:textSize="20sp"
@@ -364,16 +382,6 @@
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
-        </LinearLayout>
-
-        <!--row5-->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="135dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            >
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/viewResearchLab"
@@ -392,12 +400,15 @@
 
 
                     <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
                         android:src="@drawable/ic_lab" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Research Lab"
                         android:textColor="#000000"
@@ -408,6 +419,18 @@
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!--row5-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            >
+
+
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/view10"
@@ -426,13 +449,53 @@
 
 
                     <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
                         android:src="@drawable/ic_study" />
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Study Spance"
+                        android:text="Study Space"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        />
+
+
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/view11"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:background="#089688"
+                    android:orientation="vertical"
+                    >
+
+
+                    <ImageView
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:src="@drawable/ic_search" />
+                    <TextView
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Search"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         />
