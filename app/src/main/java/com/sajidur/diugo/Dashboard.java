@@ -29,7 +29,7 @@ import static com.sajidur.diugo.Backend.DataHold.labsArrayList;
 
 public class Dashboard extends AppCompatActivity {
 
-    ArrayList<Labs> labsArrayList=new ArrayList<Labs>();
+
     MaterialCardView news,training,elearn,library,weblink,researchlab,studySpace;
 
     @Override
@@ -96,77 +96,14 @@ public class Dashboard extends AppCompatActivity {
        researchlab.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-              // startActivity(new Intent(Dashboard.this,ResearchLabActivity.class));
-               new getData().execute();
+               startActivity(new Intent(Dashboard.this,LabsGetActivity.class));
+
            }
        });
 
     }
 
-    class getData extends AsyncTask<Void,Void,String>{
 
-        @Override
-        protected String doInBackground(Void... voids) {
-            getVolley();
-            return null;
-        }
-
-        private void getVolley(){
-            //  String URLline="http://sajidur.com/BloodApp/getdonorlist.php";
-            String URLline="http://msrkmstest-001-site1.gtempurl.com/Api/Lab";
-
-            StringRequest stringRequest = new StringRequest(Request.Method.GET, URLline, new Response.Listener<String>() {
-                @Override
-                public void onResponse(String response) {
-                    System.out.println(response);
-                    parseData(response);
-                }
-            },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            System.out.println("error"+error.toString());
-                        }
-                    });
-
-            RequestQueue requestQueue = Volley.newRequestQueue(Dashboard.this);
-            requestQueue.add(stringRequest);
-        }
-
-        public void parseData(String response){
-            System.out.println("Response"+response);
-            try{
-                //JSONObject jsonObject=new JSONObject(response);
-                //JSONArray dataArray = jsonObject.getJSONArray("Donor_Data");
-                JSONArray dataArray = new JSONArray(response);
-
-                for(int i=0;i<dataArray.length();i++){
-
-                    JSONObject dataobj=dataArray.getJSONObject(i);
-                    Labs labs = new Labs();
-                    labs.setName(dataobj.getString("labName"));
-                    labs.setID(dataobj.getString("id"));
-                    System.out.println("testuser"+labs.getName());
-                    labsArrayList.add(labs);
-                }
-                if(!(DataHold.labsArrayList==null)){
-                    DataHold.labsArrayList.clear();
-                }
-                DataHold.labsArrayList=labsArrayList;
-                System.out.println("test"+labsArrayList.size());
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-
-
-        @Override
-        protected void onPostExecute(String s) {
-            Intent intent = new Intent(Dashboard.this,LoadingActivity.class);
-            startActivity(intent);
-        }
-    }
 
 
 

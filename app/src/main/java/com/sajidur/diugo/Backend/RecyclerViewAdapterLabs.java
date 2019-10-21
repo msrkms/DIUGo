@@ -18,6 +18,15 @@ public class RecyclerViewAdapterLabs extends RecyclerView.Adapter<RecyclerViewAd
 
     private Context mcontext;
     private ArrayList<Labs>labsArrayList;
+    private OnItemClickListener mListener;
+
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        mListener=listener;
+    }
 
    public RecyclerViewAdapterLabs(Context context, ArrayList<Labs> labsArrayList){
        mcontext=context;
@@ -59,6 +68,18 @@ public class RecyclerViewAdapterLabs extends RecyclerView.Adapter<RecyclerViewAd
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textView=(TextView)itemView.findViewById(R.id.labname);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(mListener!=null){
+                        int position =getAdapterPosition();
+                        if(position!=RecyclerView.NO_POSITION){
+                            mListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
 
         }
     }
