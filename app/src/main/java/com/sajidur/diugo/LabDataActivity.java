@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -50,5 +51,11 @@ public class LabDataActivity extends AppCompatActivity {
         RecyclerViewAdapterComputers recyclerViewAdapter= new RecyclerViewAdapterComputers(this,computersArrayList);
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(this,4));
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(getApplicationContext(),LabsGetActivity.class);
+        startActivity(intent);
     }
 }
