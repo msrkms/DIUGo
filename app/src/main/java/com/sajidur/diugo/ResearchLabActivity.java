@@ -27,7 +27,7 @@ import static com.sajidur.diugo.Backend.DataHold.computersArrayList;
 
 public class ResearchLabActivity extends AppCompatActivity {
 
-    ArrayList<Computers> computersArrayList =new ArrayList<Computers>();
+    ArrayList<Computers> computersArrayList ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,7 @@ public class ResearchLabActivity extends AppCompatActivity {
         cardViewLabA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                DataHold.LabNo=1;
                 new getData().execute();
             }
         });
@@ -56,8 +57,7 @@ public class ResearchLabActivity extends AppCompatActivity {
 
         private void getVolley(){
 
-            String URLline = "http://msrkmstest-001-site1.gtempurl.com/api/Computers";
-
+            String URLline = "http://msrkmstest-001-site1.gtempurl.com/api/Lab/"+DataHold.LabNo+"/Computer";
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, URLline,
                     new Response.Listener<String>() {
@@ -87,17 +87,16 @@ public class ResearchLabActivity extends AppCompatActivity {
 
             try {
                 //  JSONObject jsonObject = new JSONObject(response);
-
                 JSONArray dataArray = new JSONArray(response);
+                computersArrayList =new ArrayList<Computers>();
                 for (int i = 0; i < dataArray.length(); i++) {
                     JSONObject dataobj = dataArray.getJSONObject(i);
                     Computers computers=new Computers();
-                    computers.setID(Integer.parseInt( dataobj.getString("c_ID")));
-                    computers.setAvailable( Boolean.parseBoolean( dataobj.getString("is_Available")));
+                    computers.setID(Integer.parseInt( dataobj.getString("id")));
+                    computers.setAvailable( Boolean.parseBoolean( dataobj.getString("isAvailable")));
                     computersArrayList.add(computers);
                 }
                 if(!(DataHold.computersArrayList ==null)) {
-
 
                     DataHold.computersArrayList.clear();
                 }
