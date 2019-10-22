@@ -77,7 +77,7 @@ public class Dashboard extends AppCompatActivity {
        researchlab.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               startActivity(new Intent(Dashboard.this,ResearchLabActivity.class));
+               startActivity(new Intent(Dashboard.this,LabsGetActivity.class));
            }
        });
 
