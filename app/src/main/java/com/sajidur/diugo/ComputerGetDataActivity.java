@@ -1,14 +1,10 @@
 package com.sajidur.diugo;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -16,13 +12,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.material.card.MaterialCardView;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.sajidur.diugo.Backend.Computers;
 import com.sajidur.diugo.Backend.DataHold;
-import com.sajidur.diugo.Backend.Labs;
-import com.sajidur.diugo.Backend.RecyclerViewAdapterComputers;
-import com.sajidur.diugo.Backend.RecyclerViewAdapterLabs;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,68 +21,15 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import static com.sajidur.diugo.Backend.DataHold.computersArrayList;
+public class ComputerGetDataActivity extends AppCompatActivity {
 
-public class ResearchLabActivity extends AppCompatActivity  {
-
-
-
-
+    ArrayList<Computers> computersArrayList ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_research_lab);
-
-
-
-        ArrayList<Labs>labsArrayList= DataHold.labsArrayList;
-
-        if(labsArrayList==null){
-
-            new MaterialAlertDialogBuilder(ResearchLabActivity.this)
-                    .setTitle("Confirm").setMessage("Data Not Received Please Try Again")
-                    .setPositiveButton("TryAgain", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    ResearchLabActivity.this.finish();
-                }
-            }).show();
-
-        }
-        else if(labsArrayList.size()<1){
-
-            new MaterialAlertDialogBuilder(ResearchLabActivity.this)
-                    .setTitle("Confirm").setMessage("Data Not Received Please Try Again")
-                    .setPositiveButton("TryAgain", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    ResearchLabActivity.this.finish();
-                }
-            }).show();
-
-        }
-
-
-        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.rv);
-        RecyclerViewAdapterLabs recyclerViewAdapter= new RecyclerViewAdapterLabs(this,labsArrayList);
-        recyclerView.setAdapter(recyclerViewAdapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,3));
-
-
+        setContentView(R.layout.activity_computer_get_data);
+        new getData().execute();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     class getData extends AsyncTask<Void,Void,String> {
 
@@ -105,7 +43,7 @@ public class ResearchLabActivity extends AppCompatActivity  {
 
         private void getVolley(){
 
-            String URLline = "http://msrkmstest-001-site1.gtempurl.com/api/Lab/"+DataHold.LabNo+"/Computer";
+            String URLline = "http://msrkmstest-001-site1.gtempurl.com/api/Lab/"+ DataHold.LabNo+"/Computer";
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, URLline,
                     new Response.Listener<String>() {
@@ -126,7 +64,7 @@ public class ResearchLabActivity extends AppCompatActivity  {
                     });
 
             // request queue
-            RequestQueue requestQueue = Volley.newRequestQueue(ResearchLabActivity.this);
+            RequestQueue requestQueue = Volley.newRequestQueue(ComputerGetDataActivity.this);
 
             requestQueue.add(stringRequest);
         }
@@ -134,7 +72,7 @@ public class ResearchLabActivity extends AppCompatActivity  {
         public void parseData(String response) {
 
             try {
-                //  JSONObject jsonObject = new JSONObject(response);
+
                 JSONArray dataArray = new JSONArray(response);
                 computersArrayList =new ArrayList<Computers>();
                 for (int i = 0; i < dataArray.length(); i++) {
@@ -158,8 +96,10 @@ public class ResearchLabActivity extends AppCompatActivity  {
 
         @Override
         protected void onPostExecute(String s) {
-            Intent intent= new Intent(ResearchLabActivity.this,DataLoadingActivity.class);
+            DataHold.DataGetsFor=DataHold.Computers;
+            Intent intent= new Intent(ComputerGetDataActivity.this,DataLoadingActivity.class);
             startActivity(intent);
+            ComputerGetDataActivity.this.finish();
         }
     }
 }
