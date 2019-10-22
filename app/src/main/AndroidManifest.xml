@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ComputerGetDataActivity"></activity>
+        <activity android:name=".AdministrativeOfficialsActivity"></activity>
+        <activity android:name=".ComputerGetDataActivity" />
         <activity android:name=".LabsGetActivity" />
         <activity android:name=".ComputerBookingActivity" />
         <activity android:name=".DataLoadingActivity" />

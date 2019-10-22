@@ -11,19 +11,21 @@ import android.widget.LinearLayout;
 import com.google.android.material.card.MaterialCardView;
 
 public class Dashboard extends AppCompatActivity {
-    MaterialCardView news,training,elearn,library,weblink,researchlab,studySpace;
+    MaterialCardView news,training,elearn,library,weblink,researchlab,administration,studySpace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        news=findViewById(R.id.diunews);
-        training=findViewById(R.id.view4);
-        elearn=findViewById(R.id.view6);
-        library=findViewById(R.id.view5);
-        weblink=findViewById(R.id.view3);
+        news=(MaterialCardView)findViewById(R.id.diunews);
+        training=(MaterialCardView)findViewById(R.id.view4);
+        elearn=(MaterialCardView)findViewById(R.id.view6);
+        library=(MaterialCardView)findViewById(R.id.view5);
+        weblink=(MaterialCardView)findViewById(R.id.view3);
         researchlab=(MaterialCardView) findViewById(R.id.viewResearchLab);
+        administration=(MaterialCardView)findViewById(R.id.view7);
+
 
 
        weblink.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +80,14 @@ public class Dashboard extends AppCompatActivity {
            @Override
            public void onClick(View view) {
                startActivity(new Intent(Dashboard.this,LabsGetActivity.class));
+           }
+       });
+
+
+       administration.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               startActivity(new Intent(Dashboard.this,AdministrativeOfficialsActivity.class));
            }
        });
 
