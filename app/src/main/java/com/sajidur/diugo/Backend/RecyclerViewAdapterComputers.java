@@ -2,14 +2,18 @@ package com.sajidur.diugo.Backend;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.sajidur.diugo.ComputerBookingActivity;
+import com.sajidur.diugo.LabDataActivity;
 import com.sajidur.diugo.LogIn;
 import com.sajidur.diugo.R;
 
@@ -64,6 +68,22 @@ public class RecyclerViewAdapterComputers extends RecyclerView.Adapter<RecyclerV
             super(itemView);
 
              imageView=(ImageView) itemView.findViewById(R.id.imageSeat);
+
+             itemView.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View view) {
+                     int position=getAdapterPosition();
+
+                     if(computersArrayList.get(position).isAvailable()){
+
+                     }else{
+                         Toast toast= Toast.makeText(mContext,"Not Available",Toast.LENGTH_SHORT);
+                         toast.show();
+                     }
+                     DataHold.ComputerID=computersArrayList.get(position).getID();
+                     mContext.startActivity(new Intent(mContext, ComputerBookingActivity.class));
+                 }
+             });
 
         }
     }

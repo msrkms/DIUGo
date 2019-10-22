@@ -2,7 +2,7 @@ package com.sajidur.diugo.Backend;
 
 public class Labs {
     private String Name;
-    private String ID;
+    private int ID;
 
     public String getName(){
         return Name;
@@ -12,11 +12,11 @@ public class Labs {
         this.Name=Name;
     }
 
-    public String getID(){
+    public int getID(){
         return ID;
     }
 
-    public void setID(String ID){
+    public void setID(int   ID){
         this.ID=ID;
     }
 }

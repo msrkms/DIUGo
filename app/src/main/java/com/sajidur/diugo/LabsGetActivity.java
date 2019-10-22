@@ -14,6 +14,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.sajidur.diugo.Backend.DataHold;
 import com.sajidur.diugo.Backend.Labs;
+import com.sajidur.diugo.Backend.MyUrl;
+
 import static com.sajidur.diugo.Backend.DataHold.labsArrayList;
 
 import org.json.JSONArray;
@@ -41,9 +43,7 @@ public class LabsGetActivity extends AppCompatActivity {
         }
 
         private void getVolley(){
-            //  String URLline="http://sajidur.com/BloodApp/getdonorlist.php";
-            String URLline="http://msrkmstest-001-site1.gtempurl.com/Api/Lab";
-
+            String URLline= MyUrl.GetAllLabs;
             StringRequest stringRequest = new StringRequest(Request.Method.GET, URLline, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -54,7 +54,7 @@ public class LabsGetActivity extends AppCompatActivity {
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            System.out.println("error"+error.toString());
+
                         }
                     });
 
@@ -65,8 +65,6 @@ public class LabsGetActivity extends AppCompatActivity {
         public void parseData(String response){
             System.out.println("Response"+response);
             try{
-                //JSONObject jsonObject=new JSONObject(response);
-                //JSONArray dataArray = jsonObject.getJSONArray("Donor_Data");
                 JSONArray dataArray = new JSONArray(response);
 
                 for(int i=0;i<dataArray.length();i++){
@@ -74,15 +72,13 @@ public class LabsGetActivity extends AppCompatActivity {
                     JSONObject dataobj=dataArray.getJSONObject(i);
                     Labs labs = new Labs();
                     labs.setName(dataobj.getString("labName"));
-                    labs.setID(dataobj.getString("id"));
-                    System.out.println("testuser"+labs.getName());
+                    labs.setID(dataobj.getInt("id"));
                     labsArrayList.add(labs);
                 }
                 if(!(DataHold.labsArrayList==null)){
                     DataHold.labsArrayList.clear();
                 }
                 DataHold.labsArrayList=labsArrayList;
-                System.out.println("test"+labsArrayList.size());
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -92,7 +88,8 @@ public class LabsGetActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-            Intent intent = new Intent(LabsGetActivity.this,LoadingActivity.class);
+            DataHold.DataGetsFor=DataHold.Labs;
+            Intent intent = new Intent(LabsGetActivity.this,DataLoadingActivity.class);
             startActivity(intent);
         }
     }
