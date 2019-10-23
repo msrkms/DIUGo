@@ -25,6 +25,7 @@
         <activity android:name=".CampusListActivity" />
         <activity android:name=".AdministrativeOfficialsActivity" />
         <activity android:name=".ComputerGetDataActivity" />
+        <activity android:name=".ComputerBookingGetDataActivity"></activity>
         <activity android:name=".LabsGetActivity" />
         <activity android:name=".ComputerBookingActivity" />
         <activity android:name=".DataLoadingActivity" />
