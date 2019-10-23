@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">DIU Go!</string>
+
+    <string-array name="campuses">
+        <item name="Main Campus">Main Campus</item>
+        <item name="Permanent Campus">Permanent Campus</item>
+        <item name="Uttara Campus"> Uttara Campus</item>
+
+    </string-array>
+
+    <string name="permanentCampusImage">https://daffodilvarsity.edu.bd/photos/other/main.jpg</string>
 </resources>
