@@ -74,14 +74,19 @@
                         android:src="@drawable/ic_news" />
 
                     <TextView
+                        android:id="@+id/newstext"
                         android:gravity="center"
-                        android:maxLines="1"
-                        android:ellipsize="end"
+                        android:ellipsize="marquee"
+                        android:fadingEdge="horizontal"
+                        android:singleLine="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:scrollHorizontally="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="News"
                         android:textColor="#000000"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
+                        android:layout_marginBottom="3dp"
 
                         />
 
@@ -113,13 +118,18 @@
                         android:src="@drawable/placefinder" />
 
                     <TextView
+                        android:id="@+id/placefindertext"
                         android:gravity="center"
-                        android:maxLines="1"
-                        android:ellipsize="end"
+                        android:ellipsize="marquee"
+                        android:fadingEdge="horizontal"
+                        android:singleLine="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:scrollHorizontally="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Place Finder"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
+                        android:layout_marginBottom="3dp"
                         android:textColor="#000000"
                         />
 
@@ -151,13 +161,18 @@
                         android:layout_height="90dp"
                         android:src="@drawable/ic_training" />
                     <TextView
+                        android:id="@+id/traninningtext"
                         android:gravity="center"
-                        android:maxLines="1"
-                        android:ellipsize="end"
+                        android:ellipsize="marquee"
+                        android:fadingEdge="horizontal"
+                        android:singleLine="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:scrollHorizontally="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Trainning"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
+                        android:layout_marginBottom="3dp"
                         android:textColor="#000000"
                         />
 
@@ -200,13 +215,18 @@
                         android:src="@drawable/web" />
 
                     <TextView
+                        android:id="@+id/weblinkstext"
                         android:gravity="center"
-                        android:maxLines="1"
-                        android:ellipsize="end"
+                        android:ellipsize="marquee"
+                        android:fadingEdge="horizontal"
+                        android:singleLine="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:scrollHorizontally="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Web Links"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
+                        android:layout_marginBottom="3dp"
                         android:textColor="#000000"
                         />
 
@@ -239,13 +259,18 @@
                         android:src="@drawable/ic_library" />
 
                     <TextView
+                        android:id="@+id/librarytext"
                         android:gravity="center"
-                        android:maxLines="1"
-                        android:ellipsize="end"
+                        android:ellipsize="marquee"
+                        android:fadingEdge="horizontal"
+                        android:singleLine="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:scrollHorizontally="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Library"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
+                        android:layout_marginBottom="3dp"
                         android:textColor="#000000"
                         />
 
@@ -277,13 +302,18 @@
                         android:layout_height="90dp"
                         android:src="@drawable/ic_elearn" />
                     <TextView
+                        android:id="@+id/elerantext"
                         android:gravity="center"
-                        android:maxLines="1"
-                        android:ellipsize="end"
+                        android:ellipsize="marquee"
+                        android:fadingEdge="horizontal"
+                        android:singleLine="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:scrollHorizontally="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="E-Learn"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
+                        android:layout_marginBottom="3dp"
                         android:textColor="#000000"
                         />
 
@@ -329,13 +359,18 @@
                         android:src="@drawable/ic_administratorinfo" />
 
                     <TextView
+                        android:id="@+id/administrationtext"
                         android:gravity="center"
-                        android:maxLines="1"
-                        android:ellipsize="end"
+                        android:ellipsize="marquee"
+                        android:fadingEdge="horizontal"
+                        android:singleLine="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:scrollHorizontally="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Administration"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
+                        android:layout_marginBottom="3dp"
                         android:textColor="#000000"
                         />
 
@@ -367,13 +402,18 @@
                         android:layout_height="90dp"
                         android:src="@drawable/ic_campusmap" />
                     <TextView
+                        android:id="@+id/campusmaptext"
                         android:gravity="center"
-                        android:maxLines="1"
-                        android:ellipsize="end"
+                        android:ellipsize="marquee"
+                        android:fadingEdge="horizontal"
+                        android:singleLine="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:scrollHorizontally="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Campus Map"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
+                        android:layout_marginBottom="3dp"
                         android:textColor="#000000"
                         />
 
@@ -405,23 +445,29 @@
                         android:src="@drawable/ic_lab" />
 
                     <TextView
+                        android:id="@+id/researchlabtext"
                         android:gravity="center"
-                        android:maxLines="1"
-                        android:ellipsize="end"
+                        android:ellipsize="marquee"
+                        android:fadingEdge="horizontal"
+                        android:singleLine="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:scrollHorizontally="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Research Lab"
                         android:textColor="#000000"
-                        android:textSize="20sp" />
+                        android:textSize="18sp"
+                        android:layout_marginBottom="3dp"/>
 
 
 
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
+
         </LinearLayout>
 
-        <!--row5-->
+        <!--row4-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -429,8 +475,6 @@
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
             >
-
-
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/view10"
@@ -453,13 +497,18 @@
                         android:layout_height="90dp"
                         android:src="@drawable/ic_study" />
                     <TextView
+                        android:id="@+id/studyspacetext"
                         android:gravity="center"
-                        android:maxLines="1"
-                        android:ellipsize="end"
+                        android:ellipsize="marquee"
+                        android:fadingEdge="horizontal"
+                        android:singleLine="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:scrollHorizontally="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Study Space"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
+                        android:layout_marginBottom="3dp"
                         android:textColor="#000000"
                         />
 
@@ -490,14 +539,19 @@
                         android:layout_height="90dp"
                         android:src="@drawable/ic_search" />
                     <TextView
+                        android:id="@+id/searchtext"
                         android:gravity="center"
-                        android:maxLines="1"
-                        android:ellipsize="end"
+                        android:ellipsize="marquee"
+                        android:fadingEdge="horizontal"
+                        android:singleLine="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:scrollHorizontally="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Search"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textColor="#000000"
+                        android:layout_marginBottom="3dp"
                         />
 
 
@@ -543,6 +597,8 @@
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
+
+
         </LinearLayout>
 
     </LinearLayout>

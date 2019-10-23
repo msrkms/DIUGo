@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">DIU Go!</string>
 
+    <string name="map_key" translatable="false"> AIzaSyB_qsP8AOP_P0MdlPz-48TDaJYjTP3vbjo</string>
+
     <string-array name="campuses">
         <item name="Main Campus">Main Campus</item>
         <item name="Permanent Campus">Permanent Campus</item>

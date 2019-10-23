@@ -7,16 +7,45 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.material.card.MaterialCardView;
 
 public class Dashboard extends AppCompatActivity {
-    MaterialCardView news,training,elearn,library,weblink,researchlab,administration,campusmap,studySpace;
+    MaterialCardView news,training,elearn,library,weblink,researchlab,administration,campusmap,placefinder,studySpace;
+    TextView newstxt,placefindertxt,trainningtxt,weblinktxt,librarytxt,elearntxt,adminitrationtxt,campusmaptxt,researchlabtxt,studyspacetxt,searchtxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        newstxt=(TextView)findViewById(R.id.newstext);
+        placefindertxt=(TextView)findViewById(R.id.placefindertext);
+        trainningtxt=(TextView)findViewById(R.id.traninningtext);
+        weblinktxt=(TextView)findViewById(R.id.weblinkstext);
+        librarytxt=(TextView)findViewById(R.id.librarytext);
+        elearntxt=(TextView)findViewById(R.id.elerantext);
+        adminitrationtxt=(TextView)findViewById(R.id.administrationtext);
+        campusmaptxt=(TextView)findViewById(R.id.campusmaptext);
+        researchlabtxt=(TextView)findViewById(R.id.researchlabtext);
+        studyspacetxt=(TextView)findViewById(R.id.studyspacetext);
+        searchtxt=(TextView)findViewById(R.id.searchtext);
+
+        newstxt.setSelected(true);
+        placefindertxt.setSelected(true);
+        trainningtxt.setSelected(true);
+        weblinktxt.setSelected(true);
+        librarytxt.setSelected(true);
+        elearntxt.setSelected(true);
+        adminitrationtxt.setSelected(true);
+        campusmaptxt.setSelected(true);
+        researchlabtxt.setSelected(true);
+        studyspacetxt.setSelected(true);
+        searchtxt.setSelected(true);
+
+
+
 
         news=(MaterialCardView)findViewById(R.id.diunews);
         training=(MaterialCardView)findViewById(R.id.view4);
@@ -26,8 +55,14 @@ public class Dashboard extends AppCompatActivity {
         researchlab=(MaterialCardView) findViewById(R.id.viewResearchLab);
         administration=(MaterialCardView)findViewById(R.id.view7);
         campusmap=(MaterialCardView)findViewById(R.id.view8);
+        placefinder=(MaterialCardView)findViewById(R.id.view2);
 
-
+        placefinder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Dashboard.this,PlaceFinderActivity.class));
+            }
+        });
 
        weblink.setOnClickListener(new View.OnClickListener() {
            @Override
