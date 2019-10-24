@@ -17,11 +17,11 @@
             >
 
             <ImageView
+                android:id="@+id/profileimge"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@mipmap/ic_launcher"
 
-                />
+                android:src="@mipmap/ic_launcher" />
 
         </LinearLayout>
 
@@ -55,18 +55,16 @@
                 />
 
             <TextView
-                android:id="@+id/cell"
+                android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cell"
-                />
+                android:text="Mail" />
 
             <TextView
-                android:id="@+id/mail"
+                android:id="@+id/campus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mail"
-                />
+                android:text="Campus" />
 
 
 
