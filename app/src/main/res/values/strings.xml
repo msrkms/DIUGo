@@ -10,5 +10,22 @@
 
     </string-array>
 
+    <string-array name="placeList">
+
+        <item>Daffodil International University,Dhaka</item>
+        <item>Daffodil International University,Ashulia</item>
+        <item>Daffodil International University, Uttara, Dhaka</item>
+        <item>CSE Building,Daffodil International University</item>
+        <item>DIU,Software Engineering Department,AB Building,Dhaka</item>
+        <item>Daffodil International University Auditorium 71 (Ekattor),Dhaka</item>
+        <item>Daffodil International University Accounts Building, Dhaka</item>
+        <item>Daffodil International University Library,Mirpur Road,Dhaka</item>
+        <item>DIU-Permanent Campus Library,Ashulia</item>
+        <item>Daffodil International University Golf Cafe</item>
+        <item>Shadhinota Shommelon Kendro, Daffodil International University Permanent Campus</item>
+        <item>Daffodil Computers Limited,Mirpur Road</item>
+
+    </string-array>
+
     <string name="permanentCampusImage">https://daffodilvarsity.edu.bd/photos/other/main.jpg</string>
 </resources>

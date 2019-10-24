@@ -7,11 +7,10 @@
         android:id="@+id/texViewID"
         android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:textSize="20sp"
+        android:layout_height="70dp"
+        android:textSize="18sp"
         android:text="Hello There"
         android:textColor="#000000"
-        android:textStyle="bold"
 
 
         />
