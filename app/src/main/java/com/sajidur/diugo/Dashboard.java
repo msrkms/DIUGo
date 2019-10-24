@@ -61,7 +61,7 @@ public class Dashboard extends AppCompatActivity {
         placefinder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Dashboard.this,PlaceListActivity.class));
+                startActivity(new Intent(Dashboard.this,PlaceFinderActivity.class));
             }
         });
 

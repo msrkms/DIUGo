@@ -8,10 +8,21 @@
 
 
     <fragment
+        android:layout_marginTop="50dp"
         android:id="@+id/google_map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/search"
+        android:queryHint="Search"
+        android:background="@drawable/searchbackground"
+        android:iconifiedByDefault="false"
+        android:layout_marginTop="0dp"
+        android:elevation="5dp"
+        />
 
 </RelativeLayout>
