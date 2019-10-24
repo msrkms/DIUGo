@@ -8,4 +8,7 @@ public class MyUrl {
     public static final String GetComputerBookingInfoPart1=ApiURl+"/Computer/";
     public static final String getGetComputerBookingInfoPart2="/ComputerBookingInfo/";
     public static final String BookComputer=ApiURl+"/ComputerBookingInfo";
+
+    public static final String GetEmployeeByCategoryPart1=ApiURl+"/EmployeeCatagory/";
+    public static final String GetEmployeeByCategoryPart2= "/Employee";
 }

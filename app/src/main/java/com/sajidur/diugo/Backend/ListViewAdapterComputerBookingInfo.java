@@ -84,7 +84,7 @@ public class ListViewAdapterComputerBookingInfo extends BaseAdapter {
         return convertView;
     }
 
-    private class ViewHolder {
+    class ViewHolder {
 
         protected MaterialTextView  materialTextViewDate,materialTextViewStartTime,materialTextViewEndTime,materialTextViewUser;
 
