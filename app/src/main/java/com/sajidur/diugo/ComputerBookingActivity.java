@@ -1,23 +1,15 @@
 package com.sajidur.diugo;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
-import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -31,28 +23,17 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
 import com.sajidur.diugo.Backend.ComputerBookingInfo;
-import com.sajidur.diugo.Backend.Computers;
 import com.sajidur.diugo.Backend.DataHold;
 import com.sajidur.diugo.Backend.DateFormatting;
 import com.sajidur.diugo.Backend.ListViewAdapterComputerBookingInfo;
 import com.sajidur.diugo.Backend.MyUrl;
-import com.sajidur.diugo.Backend.RecyclerViewAdapterComputerBookingInfo;
-import com.sajidur.diugo.Backend.RecyclerViewAdapterLabs;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.Year;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
 
 public class ComputerBookingActivity extends AppCompatActivity {
 
@@ -81,7 +62,7 @@ public class ComputerBookingActivity extends AppCompatActivity {
         materialTextViewStartTime=(MaterialTextView) findViewById(R.id.materialTextViewBookingStartTime);
         getMaterialTextViewEndTime=(MaterialTextView) findViewById(R.id.materialTextViewBookingEndTime);
         materialButtonBook=(MaterialButton) findViewById(R.id.materialButtonBookComputer);
-        listViewBooking=(ListView) findViewById(R.id.listViewBookingDetails);
+        listViewBooking=(ListView) findViewById(R.id.listViewEmployee);
         materialTextViewBookingDetails.setVisibility(View.GONE);
         linearLayoutBookingDetailsHeader=(LinearLayout)findViewById(R.id.dataheader);
         linearLayoutBookingDetailsHeader.setVisibility(View.GONE);
@@ -101,9 +82,20 @@ public class ComputerBookingActivity extends AppCompatActivity {
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
 
-                                String Date=dayOfMonth + "-" + (monthOfYear + 1) + "-" + year;
+                                String dayofmonth=String.valueOf(dayOfMonth);
+                                if(dayOfMonth<10){
+                                    dayofmonth="0"+dayOfMonth;
+                                }
+
+                                String month=String.valueOf(monthOfYear+1);
+
+                                if((monthOfYear+1)<10){
+                                    month="0"+monthOfYear;
+                                }
+
+                                String Date=dayofmonth + "-" + (month) + "-" + year;
                                 DataHold.Date=Date;
-                                materialTextViewDate.setText(Date);
+                                materialTextViewDate.setText(DataHold.Date);
                                 showGetData();
                               //  new getData().execute();
                                 getBookingInfo();
@@ -257,7 +249,7 @@ public class ComputerBookingActivity extends AppCompatActivity {
 
     private void getBookingInfo() {
 
-        DataHold.Date=materialTextViewDate.getText().toString();
+      //  DataHold.Date=materialTextViewDate.getText().toString();
 
         String URLline = MyUrl.GetComputerBookingInfoPart1 + DataHold.ComputerID+MyUrl.getGetComputerBookingInfoPart2+DataHold.Date;
 

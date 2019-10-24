@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:background="@color/colorPrimary"
     android:orientation="horizontal"
-    android:weightSum="6"
+    android:weightSum="8"
     android:layout_height="30dp">
 
 
@@ -18,7 +18,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:text="Date"
-        android:layout_weight="2"
+        android:layout_weight="2.8"
         android:background="@drawable/textlines" />
 
 
@@ -27,17 +27,17 @@
         android:id="@+id/StartTime"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="1.6"
         android:background="@drawable/textlines"
         android:text="From" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:layout_marginLeft="1dp"
+        android:layout_marginLeft="1.8dp"
         android:id="@+id/EndTime"
         android:layout_width="0dp"
         android:text="To"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="1.6"
         android:background="@drawable/textlines" />
 
     <com.google.android.material.textview.MaterialTextView

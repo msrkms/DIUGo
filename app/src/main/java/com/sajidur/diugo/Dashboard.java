@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.google.android.material.card.MaterialCardView;
 
 public class Dashboard extends AppCompatActivity {
-    MaterialCardView news,training,elearn,library,weblink,researchlab,administration,campusmap,placefinder,studySpace;
+    MaterialCardView news,training,elearn,library,weblink,researchlab,administration,campusmap,placefinder,studySpace,search;
     TextView newstxt,placefindertxt,trainningtxt,weblinktxt,librarytxt,elearntxt,adminitrationtxt,campusmaptxt,researchlabtxt,studyspacetxt,searchtxt;
 
     @Override
@@ -56,6 +56,7 @@ public class Dashboard extends AppCompatActivity {
         administration=(MaterialCardView)findViewById(R.id.view7);
         campusmap=(MaterialCardView)findViewById(R.id.view8);
         placefinder=(MaterialCardView)findViewById(R.id.view2);
+        search=(MaterialCardView) findViewById(R.id.viewSearch);
 
         placefinder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +96,7 @@ public class Dashboard extends AppCompatActivity {
        elearn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               String diublended="https://elearn.daffodil.university/";
+               String diublended="https://elearn.daffodil.university/login/index.php";
                Intent intent = new Intent(Dashboard.this,ViewWebPages.class);
                intent.putExtra("News",diublended);
                startActivity(intent);
@@ -105,12 +106,22 @@ public class Dashboard extends AppCompatActivity {
        library.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               String diulibrary="http://library.daffodilvarsity.edu.bd/";
+               String diulibrary="http://opac.library.daffodilvarsity.edu.bd/cgi-bin/koha/opac-user.pl";
                Intent intent = new Intent(Dashboard.this,ViewWebPages.class);
                intent.putExtra("News",diulibrary);
                startActivity(intent);
            }
        });
+
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String diulibrary="https://daffodilvarsity.edu.bd/home/search";
+                Intent intent = new Intent(Dashboard.this,ViewWebPages.class);
+                intent.putExtra("News",diulibrary);
+                startActivity(intent);
+            }
+        });
 
        researchlab.setOnClickListener(new View.OnClickListener() {
            @Override

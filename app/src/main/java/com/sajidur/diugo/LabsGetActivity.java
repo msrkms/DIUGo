@@ -91,6 +91,7 @@ public class LabsGetActivity extends AppCompatActivity {
             DataHold.DataGetsFor=DataHold.Labs;
             Intent intent = new Intent(LabsGetActivity.this,DataLoadingActivity.class);
             startActivity(intent);
+            LabsGetActivity.this.finish();
         }
     }
 }
