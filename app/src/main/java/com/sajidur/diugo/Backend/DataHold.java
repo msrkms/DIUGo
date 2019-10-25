@@ -10,6 +10,10 @@ public class DataHold {
 
     public static final int Computers=2;
 
+    public static final int StudySpace=3;
+
+    public static final int StudySpaceSeat=4;
+
     public static final int TopLevelManagement=1;
 
     public static final  int Director=2;
@@ -28,6 +32,13 @@ public class DataHold {
 
     public static ArrayList<Employee> employeeArrayList;
 
+    public static ArrayList<StudySpace> studySpaceArrayList;
+
+    public static ArrayList<StudySpaceSeat> studySpaceSeatArrayList;
+
+    public static ArrayList<StudySpaceBookingInfo> studySpaceBookingInfoArrayList;
+
+
     public static String Date;
     public static String ActivityHeader;
     public static int DataGetsFor;
@@ -35,4 +46,8 @@ public class DataHold {
     public static  int LabNo;
 
     public  static  int ComputerID;
+
+    public static int StudySpaceNo;
+
+    public static int StudySpaceSeatNo;
 }
