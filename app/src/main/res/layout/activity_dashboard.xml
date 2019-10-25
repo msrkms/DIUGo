@@ -477,7 +477,7 @@
             >
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/view10"
+                android:id="@+id/viewStudyspace"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginRight="10dp"

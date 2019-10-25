@@ -15,6 +15,8 @@ import com.android.volley.toolbox.Volley;
 import com.sajidur.diugo.Backend.Computers;
 import com.sajidur.diugo.Backend.DataHold;
 import com.sajidur.diugo.Backend.MyUrl;
+import com.sajidur.diugo.Backend.StudySpace;
+import com.sajidur.diugo.Backend.StudySpaceSeat;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,15 +24,16 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class ComputerGetDataActivity extends AppCompatActivity {
+public class StudySpaceDataGetActivity extends AppCompatActivity {
 
-    ArrayList<Computers> computersArrayList ;
+    ArrayList<StudySpaceSeat> studySpaceSeatArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_computer_get_data);
+        setContentView(R.layout.activity_study_space_data_get);
         new getData().execute();
     }
+
 
     class getData extends AsyncTask<Void,Void,String> {
 
@@ -44,7 +47,8 @@ public class ComputerGetDataActivity extends AppCompatActivity {
 
         private void getVolley(){
 
-            String URLline = MyUrl.getComputersPart1 + DataHold.LabNo+MyUrl.getComputersPart2;
+            String URLline = MyUrl.getStudySpaceSeatPart1 + DataHold.StudySpaceNo+MyUrl.getStudySpaceSeatPart2;
+
             StringRequest stringRequest = new StringRequest(Request.Method.GET, URLline,
                     new Response.Listener<String>() {
                         @Override
@@ -64,7 +68,7 @@ public class ComputerGetDataActivity extends AppCompatActivity {
                     });
 
             // request queue
-            RequestQueue requestQueue = Volley.newRequestQueue(ComputerGetDataActivity.this);
+            RequestQueue requestQueue = Volley.newRequestQueue(StudySpaceDataGetActivity.this);
 
             requestQueue.add(stringRequest);
         }
@@ -74,19 +78,19 @@ public class ComputerGetDataActivity extends AppCompatActivity {
             try {
 
                 JSONArray dataArray = new JSONArray(response);
-                computersArrayList =new ArrayList<Computers>();
+                studySpaceSeatArrayList =new ArrayList<StudySpaceSeat>();
                 for (int i = 0; i < dataArray.length(); i++) {
                     JSONObject dataobj = dataArray.getJSONObject(i);
-                    Computers computers=new Computers();
-                    computers.setID(Integer.parseInt( dataobj.getString("id")));
-                    computers.setAvailable( Boolean.parseBoolean( dataobj.getString("isAvailable")));
-                    computersArrayList.add(computers);
+                    StudySpaceSeat studySpaceSeat=new StudySpaceSeat();
+                    studySpaceSeat.setID(Integer.parseInt( dataobj.getString("id")));
+                    studySpaceSeat.setAvailable( Boolean.parseBoolean( dataobj.getString("isAvailable")));
+                    studySpaceSeatArrayList.add(studySpaceSeat);
                 }
-                if(!(DataHold.computersArrayList ==null)) {
+                if(!(DataHold.studySpaceSeatArrayList ==null)) {
 
-                    DataHold.computersArrayList.clear();
+                    DataHold.studySpaceSeatArrayList.clear();
                 }
-                DataHold.computersArrayList=computersArrayList;
+                DataHold.studySpaceSeatArrayList=studySpaceSeatArrayList;
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -96,10 +100,10 @@ public class ComputerGetDataActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-            DataHold.DataGetsFor=DataHold.Computers;
-            Intent intent= new Intent(ComputerGetDataActivity.this,DataLoadingActivity.class);
+            DataHold.DataGetsFor=DataHold.StudySpaceSeat;
+            Intent intent= new Intent(StudySpaceDataGetActivity.this,DataLoadingActivity.class);
             startActivity(intent);
-            ComputerGetDataActivity.this.finish();
+            StudySpaceDataGetActivity.this.finish();
         }
     }
 }
