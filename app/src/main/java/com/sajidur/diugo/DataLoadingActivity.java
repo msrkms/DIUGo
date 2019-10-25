@@ -33,6 +33,14 @@ public class DataLoadingActivity extends AppCompatActivity {
                     Intent mySuperIntent = new Intent(DataLoadingActivity.this, LabDataActivity.class);
                     startActivity(mySuperIntent);
                     DataLoadingActivity.this.finish();
+                }else if(DataHold.DataGetsFor==DataHold.StudySpace){
+                    Intent mySuperIntent = new Intent(DataLoadingActivity.this, StudySpaceActivity.class);
+                    startActivity(mySuperIntent);
+                    DataLoadingActivity.this.finish();
+                }else if(DataHold.DataGetsFor==DataHold.StudySpaceSeat){
+                    Intent mySuperIntent = new Intent(DataLoadingActivity.this, StudySpaceDataActivity.class);
+                    startActivity(mySuperIntent);
+                    DataLoadingActivity.this.finish();
                 }
             }
         }, SPLASH_TIME);

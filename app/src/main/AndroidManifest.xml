@@ -14,7 +14,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PlaceListActivity"></activity>
+        <activity android:name=".StudySpaceBookingActivity"></activity>
+        <activity android:name=".StudySpaceGetActivity" />
+        <activity android:name=".StudySpaceDataGetActivity" />
+        <activity android:name=".StudySpaceDataActivity" />
+        <activity android:name=".StudySpaceActivity" />
+        <activity android:name=".PlaceListActivity" />
         <activity android:name=".EmployeeDetailsActivity" />
 
         <meta-data

@@ -1,10 +1,13 @@
 package com.sajidur.diugo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
@@ -21,12 +24,17 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textview.MaterialTextView;
 import com.sajidur.diugo.Backend.ComputerBookingInfo;
 import com.sajidur.diugo.Backend.DataHold;
 import com.sajidur.diugo.Backend.DateFormatting;
+import com.sajidur.diugo.Backend.Labs;
 import com.sajidur.diugo.Backend.ListViewAdapterComputerBookingInfo;
+import com.sajidur.diugo.Backend.ListViewAdapterStudySpaceBookingInfo;
 import com.sajidur.diugo.Backend.MyUrl;
+import com.sajidur.diugo.Backend.RecyclerViewAdapterLabs;
+import com.sajidur.diugo.Backend.StudySpaceBookingInfo;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,8 +43,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class ComputerBookingActivity extends AppCompatActivity {
-
+public class StudySpaceBookingActivity extends AppCompatActivity {
     ListView listViewBooking;
     LinearLayout linearLayoutBookingDetailsHeader;
     private final  int StartTimeField=1,EndTimeField=2;
@@ -47,13 +54,12 @@ public class ComputerBookingActivity extends AppCompatActivity {
     private MaterialButton materialButtonBook;
     private int year, month, day,hour,minute;
     private ProgressDialog progressDialog ;
-    private ArrayList<ComputerBookingInfo>  computerBookingInfosArrayList;
+    private ArrayList<StudySpaceBookingInfo>  studySpaceBookingInfoArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_computer_booking);
-
+        setContentView(R.layout.activity_study_space_booking);
 
 
 
@@ -75,7 +81,7 @@ public class ComputerBookingActivity extends AppCompatActivity {
                 day = calendar.get(Calendar.DAY_OF_MONTH);
 
 
-                 datePicker = new DatePickerDialog(ComputerBookingActivity.this,
+                datePicker = new DatePickerDialog(StudySpaceBookingActivity.this,
                         new DatePickerDialog.OnDateSetListener() {
 
                             @Override
@@ -97,7 +103,7 @@ public class ComputerBookingActivity extends AppCompatActivity {
                                 DataHold.Date=Date;
                                 materialTextViewDate.setText(DataHold.Date);
                                 showGetData();
-                              //  new getData().execute();
+                                //  new getData().execute();
                                 getBookingInfo();
 
                             }
@@ -133,72 +139,6 @@ public class ComputerBookingActivity extends AppCompatActivity {
 
     }
 
-
-
-    private void bookComputer(){
-
-
-
-        DateFormatting dateFormatting=new DateFormatting();
-        final String Date=dateFormatting.dateConvertforPost(materialTextViewDate.getText().toString());
-        final String StartTime=dateFormatting.timeConvertforPost(materialTextViewStartTime.getText().toString());
-        final String EndTime=dateFormatting.timeConvertforPost(getMaterialTextViewEndTime.getText().toString());
-        final String User =DataHold.User;
-        final String Computer=String.valueOf(DataHold.ComputerID);
-
-
-
-        JSONObject postparams = new JSONObject();
-        try {
-
-            postparams.put("bookingDate",Date);
-            postparams.put("bookingStartTime",StartTime);
-            postparams.put("bookingEndTime",EndTime);
-            postparams.put("c_ID",Computer);
-            postparams.put("u_ID",User);
-
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST,
-                MyUrl.BookComputer, postparams,
-                new Response.Listener() {
-                    @Override
-                    public void onResponse(Object response) {
-                        try{
-                            JSONObject jsonObject= new JSONObject(response.toString());
-                            if(!(jsonObject==null)){
-                                showGetData();
-                                getBookingInfo();
-                                Toast.makeText(ComputerBookingActivity.this,"Your Booking Request Accepted,If you late 20 min your booking will no longer valid ",Toast.LENGTH_LONG).show();
-
-                            }
-                        }catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-
-
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                    }
-                });
-
-
-
-
-
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(jsonObjReq);
-    }
-
-
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -217,7 +157,7 @@ public class ComputerBookingActivity extends AppCompatActivity {
         calendar = Calendar.getInstance();
         hour = calendar.get(Calendar.HOUR_OF_DAY);
         minute = calendar.get(Calendar.MINUTE);
-         timePicker = new TimePickerDialog(ComputerBookingActivity.this,
+        timePicker = new TimePickerDialog(StudySpaceBookingActivity.this,
                 new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay,
@@ -245,13 +185,78 @@ public class ComputerBookingActivity extends AppCompatActivity {
 
 
 
+    private void bookComputer(){
+
+
+
+        DateFormatting dateFormatting=new DateFormatting();
+        final String Date=dateFormatting.dateConvertforPost(materialTextViewDate.getText().toString());
+        final String StartTime=dateFormatting.timeConvertforPost(materialTextViewStartTime.getText().toString());
+        final String EndTime=dateFormatting.timeConvertforPost(getMaterialTextViewEndTime.getText().toString());
+        final String User =DataHold.User;
+        final String StudySpace=String.valueOf(DataHold.StudySpaceSeatNo);
+
+
+
+        JSONObject postparams = new JSONObject();
+        try {
+
+            postparams.put("bookingDate",Date);
+            postparams.put("bookingStartTime",StartTime);
+            postparams.put("bookingEndTime",EndTime);
+            postparams.put("s_ID",StudySpace);
+            postparams.put("u_ID",User);
+
+            System.out.println("Arra"+postparams);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST,
+                MyUrl.BookStudySpace, postparams,
+                new Response.Listener() {
+                    @Override
+                    public void onResponse(Object response) {
+                        try{
+                            JSONObject jsonObject= new JSONObject(response.toString());
+                            if(!(jsonObject==null)){
+                                showGetData();
+                                getBookingInfo();
+                                Toast.makeText(StudySpaceBookingActivity.this,"Your Booking Request Accepted,If you late 20 min your booking will no longer valid ",Toast.LENGTH_LONG).show();
+
+                            }
+                        }catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+
+
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+
+
+
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(jsonObjReq);
+    }
+
+
+
 
 
     private void getBookingInfo() {
 
-      //  DataHold.Date=materialTextViewDate.getText().toString();
+          DataHold.Date=materialTextViewDate.getText().toString();
 
-        String URLline = MyUrl.GetComputerBookingInfoPart1 + DataHold.ComputerID+MyUrl.getGetComputerBookingInfoPart2+DataHold.Date;
+        String URLline = MyUrl.GetStudySpaceBookingInfoPart1 + DataHold.StudySpaceSeatNo+MyUrl.GetStudySpaceBookingInfoPart2+DataHold.Date;
 
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URLline,
@@ -261,37 +266,40 @@ public class ComputerBookingActivity extends AppCompatActivity {
                         try {
 
                             JSONArray dataArray = new JSONArray(response);
-                            computerBookingInfosArrayList =new ArrayList<ComputerBookingInfo>();
+                            studySpaceBookingInfoArrayList =new ArrayList<StudySpaceBookingInfo>();
+                            studySpaceBookingInfoArrayList.clear();
                             for (int i = 0; i < dataArray.length(); i++) {
                                 JSONObject dataobj = dataArray.getJSONObject(i);
-                                ComputerBookingInfo computersBookingInfo=new ComputerBookingInfo();
-                                computersBookingInfo.setID(Integer.parseInt( dataobj.getString("id")));
-                                computersBookingInfo.setBookingDate( ( dataobj.getString("bookingDate")));
-                                computersBookingInfo.setBookingStartTime(dataobj.getString("bookingStartTime"));
-                                computersBookingInfo.setBookingEndTime(dataobj.getString("bookingEndTime"));
+
+                                StudySpaceBookingInfo studySpaceBookingInfo= new StudySpaceBookingInfo();
+
+                                studySpaceBookingInfo.setID(Integer.parseInt( dataobj.getString("id")));
+                                studySpaceBookingInfo.setBookingDate( ( dataobj.getString("bookingDate")));
+                                studySpaceBookingInfo.setBookingStartTime(dataobj.getString("bookingStartTime"));
+                                studySpaceBookingInfo.setBookingEndTime(dataobj.getString("bookingEndTime"));
 
 
-                                System.out.println(computersBookingInfo.getBookingDate());
+                                System.out.println(studySpaceBookingInfo.getBookingDate());
                                 DateFormatting dateFormatting= new DateFormatting();
-                                computersBookingInfo.setBookingDate(dateFormatting.dateConvert(computersBookingInfo.getBookingDate()));
-                                System.out.println(computersBookingInfo.getBookingDate());
-                                computersBookingInfo.setBookingStartTime(dateFormatting.timeConvert(computersBookingInfo.getBookingStartTime()));
-                                computersBookingInfo.setBookingEndTime(dateFormatting.timeConvert(computersBookingInfo.getBookingEndTime()));
+                                studySpaceBookingInfo.setBookingDate(dateFormatting.dateConvert(studySpaceBookingInfo.getBookingDate()));
+                                System.out.println(studySpaceBookingInfo.getBookingDate());
+                                studySpaceBookingInfo.setBookingStartTime(dateFormatting.timeConvert(studySpaceBookingInfo.getBookingStartTime()));
+                                studySpaceBookingInfo.setBookingEndTime(dateFormatting.timeConvert(studySpaceBookingInfo.getBookingEndTime()));
 
-                                computersBookingInfo.setC_ID(dataobj.getInt("c_ID"));
-                                computersBookingInfo.setU_ID(dataobj.getString("u_ID"));
-                                computerBookingInfosArrayList.add(computersBookingInfo);
+                                studySpaceBookingInfo.setS_ID(dataobj.getInt("s_ID"));
+                                studySpaceBookingInfo.setU_ID(dataobj.getString("u_ID"));
+                                studySpaceBookingInfoArrayList.add(studySpaceBookingInfo);
                             }
-                            if(!(DataHold.computerBookingInfosArrayList ==null)) {
-                                DataHold.computerBookingInfosArrayList.clear();
+                            if(!(DataHold.studySpaceBookingInfoArrayList ==null)) {
+                                DataHold.studySpaceSeatArrayList.clear();
                             }
-                            DataHold.computerBookingInfosArrayList=computerBookingInfosArrayList;
+                            DataHold.studySpaceBookingInfoArrayList=studySpaceBookingInfoArrayList;
 
-                            if(!(computerBookingInfosArrayList==null) && computerBookingInfosArrayList.size()>0){
-                                ListViewAdapterComputerBookingInfo adapterComputerBookingInfo= new ListViewAdapterComputerBookingInfo(ComputerBookingActivity.this,DataHold.computerBookingInfosArrayList);
+                            if(!(studySpaceBookingInfoArrayList==null) && studySpaceBookingInfoArrayList.size()>0){
+                                ListViewAdapterStudySpaceBookingInfo listViewAdapterStudySpaceBookingInfo= new ListViewAdapterStudySpaceBookingInfo(StudySpaceBookingActivity.this,DataHold.studySpaceBookingInfoArrayList);
                                 materialTextViewBookingDetails.setVisibility(View.VISIBLE);
                                 linearLayoutBookingDetailsHeader.setVisibility(View.VISIBLE);
-                                listViewBooking.setAdapter(adapterComputerBookingInfo);
+                                listViewBooking.setAdapter(listViewAdapterStudySpaceBookingInfo);
                             }else{
                                 listViewBooking.setAdapter(null);
                                 materialTextViewBookingDetails.setVisibility(View.GONE);
@@ -304,7 +312,7 @@ public class ComputerBookingActivity extends AppCompatActivity {
                             listViewBooking.setAdapter(null);
                             materialTextViewBookingDetails.setVisibility(View.GONE);
                             linearLayoutBookingDetailsHeader.setVisibility(View.GONE);
-                            Toast.makeText(ComputerBookingActivity.this,"Fail to get data",Toast.LENGTH_SHORT);
+                            Toast.makeText(StudySpaceBookingActivity.this,"Fail to get data",Toast.LENGTH_SHORT);
 
                         }
                     }
@@ -326,4 +334,3 @@ public class ComputerBookingActivity extends AppCompatActivity {
     }
 
 }
-

@@ -57,6 +57,7 @@ public class Dashboard extends AppCompatActivity {
         campusmap=(MaterialCardView)findViewById(R.id.view8);
         placefinder=(MaterialCardView)findViewById(R.id.view2);
         search=(MaterialCardView) findViewById(R.id.viewSearch);
+        studySpace=(MaterialCardView) findViewById(R.id.viewStudyspace);
 
         placefinder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,6 +146,13 @@ public class Dashboard extends AppCompatActivity {
                startActivity(new Intent(Dashboard.this,CampusListActivity.class));
            }
        });
+
+        studySpace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Dashboard.this,StudySpaceGetActivity.class));
+            }
+        });
 
     }
 

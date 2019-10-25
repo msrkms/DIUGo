@@ -75,13 +75,13 @@ public class RecyclerViewAdapterComputers extends RecyclerView.Adapter<RecyclerV
                      int position=getAdapterPosition();
 
                      if(computersArrayList.get(position).isAvailable()){
-
+                         DataHold.ComputerID=computersArrayList.get(position).getID();
+                         mContext.startActivity(new Intent(mContext, ComputerBookingActivity.class));
                      }else{
                          Toast toast= Toast.makeText(mContext,"Not Available",Toast.LENGTH_SHORT);
                          toast.show();
                      }
-                     DataHold.ComputerID=computersArrayList.get(position).getID();
-                     mContext.startActivity(new Intent(mContext, ComputerBookingActivity.class));
+
                  }
              });
 
